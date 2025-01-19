@@ -69,11 +69,11 @@ def construct6ASTreeInForest(V, curspiltIndexArray, beta=12):
     return leaf_nodes
 
 
-def construct6ASTree(V, beta=12):
+def construct6ASTree(V, DHCType="LeftVDPS", beta=12):
     root = TreeNode(V)
     init_subspace(root, V)
     leafs = []
-    DHC(root, beta, V, leafs, "LeftVDPS")
+    DHC(root, beta, V, leafs, DHCType)
     return narrowDimension(leafs)
 
 
