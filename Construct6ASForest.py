@@ -14,10 +14,11 @@ from GenerateAddress import generate_allnode_addresses_without_scan_withWrite
 allSpaceList = set()
 allLeafList = set()
 
-def construct6ASTree(V,DHCType,lowDimFile):
+
+def construct6ASTree(V, DHCType, lowDimFile):
     init_start_time = time.time()
     start_time = time.time()
-    lowDimPatterns = construct6ASTree(V,DHCType)
+    lowDimPatterns = construct6ASTreeByDHC(V, DHCType,12)
     end_time = time.time()
     elapsed_time = end_time - start_time
     print("构建6ASTree耗时：", elapsed_time, "秒")
@@ -29,11 +30,12 @@ def construct6ASTree(V,DHCType,lowDimFile):
     elapsed_time = end_time - init_start_time
     print("代码总耗时：", elapsed_time, "秒")
 
+
 def construct6ASForest(V, treeNum=10):
     init_start_time = time.time()
     start_time = time.time()
     # seeds = set([trancAddress(e) for e in V])
-    lowDimPatterns = construct6ASTree(V)
+    lowDimPatterns = construct6ASTreeByDHC(V)
     end_time = time.time()
     elapsed_time = end_time - start_time
     print("构建6ASTree耗时：", elapsed_time, "秒")
@@ -83,7 +85,7 @@ def construct6ASTreeInForest(V, curspiltIndexArray, beta=12):
     return leaf_nodes
 
 
-def construct6ASTree(V, DHCType="LeftVDPS", beta=12):
+def construct6ASTreeByDHC(V, DHCType="LeftVDPS", beta=12):
     root = TreeNode(V)
     init_subspace(root, V)
     leafs = []
@@ -114,7 +116,7 @@ def DHC(node, beta, V, leaf_nodes, DHCType):
     if DHCType == "LeftVDPS":
         splits = leftmost(V)
     elif DHCType == "RightVDPS":
-        splits = rightmost(V)
+        splits = rightmost(V,1)
     elif DHCType == "MinEntropy":
         splits = minEntropy(V)
     elif DHCType == "MaxCover":
@@ -372,7 +374,7 @@ def iter_devide_All(arrs):
     regions_arrs = []
     while not q.empty():
         arrs = q.get()
-        splits = rightmost(arrs)
+        splits = rightmost(arrs,1)
 
         if 1 in [len(s) for s in splits]:
             regions_arrs.append(arrs)
