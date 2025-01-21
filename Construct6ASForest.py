@@ -46,7 +46,7 @@ def construct6ASForest(V, treeNum=10):
     elapsed_time = end_time - start_time
     print("构建6ASForest耗时：", elapsed_time, "秒")
     print("6AsForest中包含低维度地址模式数量：", len(lowDimPatterns))
-
+    lowDimPatterns=list(set(lowDimPatterns))
     # 将IPv6地址模式输出到文件中，
     # 使用 GenerateAddress{https://github.com/KeenoHao/GenerateAddress.git}工具快速生成地址
     with open("lowDimPatterns", 'w', encoding='utf-8') as f:

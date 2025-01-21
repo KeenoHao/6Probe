@@ -17,9 +17,9 @@ def expand(pattern, index, string):
 
 
 
-def generate_allnode_addresses_without_scan_withWrite(lowDimPatterns, seeds):
+def generate_allnode_addresses_without_scan_withWrite(lowDimPatterns, seeds,targetFilePrefix="target"):
     global tid
-    type = "target" + str(tid) + "-"
+    type = targetFilePrefix + str(tid) + "-"
     num = 0
     if len(lowDimPatterns) <= 10000:
         # print(1)
