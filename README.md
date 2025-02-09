@@ -9,8 +9,8 @@ This is a demo for IPv6 target generation based on seed addresses (active addres
 #### Environment
 
 ```
-1. python 3.6 or higher version
-2. numpy 1.21.2 or higher version
+1. python 3.8 or higher version
+2. numpy 2.2.2 or higher version
 3. IPy 1.1 or higher version
 ```
 
