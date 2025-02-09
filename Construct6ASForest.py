@@ -1,15 +1,15 @@
 import ipaddress
 import queue
-from nis import match
+
 
 import numpy as np
 import random
 import time
 
-from exceptiongroup import catch
+
 
 from Definitions import TreeNode
-from GenerateAddress import generate_allnode_addresses_without_scan_withWrite
+
 
 allSpaceList = set()
 allLeafList = set()
@@ -21,40 +21,39 @@ def construct6ASTree(V, DHCType, lowDimFile):
     lowDimPatterns = construct6ASTreeByDHC(V, DHCType,12)
     end_time = time.time()
     elapsed_time = end_time - start_time
-    print("构建6ASTree耗时：", elapsed_time, "秒")
-    print("6AsTree中包含低维度地址模式数量：", len(lowDimPatterns))
+    print("Build a 6ASTree：", elapsed_time, "Second")
+    print("The number of low-dimensional patterns：", len(lowDimPatterns))
     with open(lowDimFile, 'w', encoding='utf-8') as f:
         for pattern in lowDimPatterns:
             f.write(pattern + '\n')
     end_time = time.time()
     elapsed_time = end_time - init_start_time
-    print("代码总耗时：", elapsed_time, "秒")
+    print("Total code time：", elapsed_time, "Second")
 
 
-def construct6ASForest(V, treeNum=10):
+def construct6ASForest(V,lowDimPatternFile, treeNum=40):
     init_start_time = time.time()
     start_time = time.time()
     # seeds = set([trancAddress(e) for e in V])
     lowDimPatterns = construct6ASTreeByDHC(V)
     end_time = time.time()
     elapsed_time = end_time - start_time
-    print("构建6ASTree耗时：", elapsed_time, "秒")
-    print("6AsTree中包含低维度地址模式数量：", len(lowDimPatterns))
+    print("Build a 6ASTree：", elapsed_time, "Second")
     start_time = time.time()
     lowDimPatterns += constructAdditional6ASTrees(V, treeNum)
     end_time = time.time()
     elapsed_time = end_time - start_time
-    print("构建6ASForest耗时：", elapsed_time, "秒")
-    print("6AsForest中包含低维度地址模式数量：", len(lowDimPatterns))
+    print("Build the 6ASForest：", elapsed_time, "Second")
     lowDimPatterns=list(set(lowDimPatterns))
+    print("The number of low-dimensional patterns：", len(lowDimPatterns))
     # 将IPv6地址模式输出到文件中，
     # 使用 GenerateAddress{https://github.com/KeenoHao/GenerateAddress.git}工具快速生成地址
-    with open("lowDimPatterns", 'w', encoding='utf-8') as f:
+    with open(lowDimPatternFile, 'w', encoding='utf-8') as f:
         for pattern in lowDimPatterns:
             f.write(pattern + '\n')
     end_time = time.time()
     elapsed_time = end_time - init_start_time
-    print("代码总耗时：", elapsed_time, "秒")
+    print("Total code time：", elapsed_time, "Second")
 
     # 也可用python生成，速度慢
     # start_time = time.time()
