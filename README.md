@@ -1,6 +1,6 @@
 # 6Probe
 
-This is a demo for IPv6 target generation based on seed addresses (active addresses). Its idea is introduced in the paper [6Probe: An IPv6 Target Generation Approach Based on Address Space Forest](https://doi.org/10.1038/s41598-025-97640-w).
+This is a demo for IPv6 target generation based on seed addresses (active addresses). Its idea is introduced in the paper [An IPv6 Target Generation Approach Based on Address Space Forest](https://doi.org/10.1038/s41598-025-97640-w).
 
 
 
