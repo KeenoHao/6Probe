@@ -126,3 +126,22 @@ Aliases. Aliases data. https://alcatraz.net.in.tum.de/ipv6-hitlist-service/open/
 Longest prefix matching for aliased prefixes. Longest prefix matching for aliased prefixes github code. https://ipv6hitlist.github.io/lpm/aliases-lpm.py
 ```
 
+## Cite
+
+If the code is helpful in your work, please cite our paper:
+
+```
+@article{hao2025ipv6,
+  title={An IPv6 target generation approach based on address space forest},
+  author={Hao, Shunlong and Zhang, Liancheng and Zhang, Hongtao and Cheng, Lanxin and Guo, Yi and Li, Zhanbo and Lin, Bin and Zhu, Haojie and Ren, Mingyue and Zhang, Lanyun},
+  journal={Scientific Reports},
+  volume={15},
+  number={1},
+  pages={13933},
+  year={2025},
+  publisher={Nature Publishing Group UK London}
+}
+```
+```
+
+
