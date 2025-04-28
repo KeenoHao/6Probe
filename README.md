@@ -131,7 +131,7 @@ Longest prefix matching for aliased prefixes. Longest prefix matching for aliase
 If the code is helpful in your work, please cite our paper:
 
 ```
-@article{hao2025ipv6,
+@article{hao20256Probe,
   title={An IPv6 target generation approach based on address space forest},
   author={Hao, Shunlong and Zhang, Liancheng and Zhang, Hongtao and Cheng, Lanxin and Guo, Yi and Li, Zhanbo and Lin, Bin and Zhu, Haojie and Ren, Mingyue and Zhang, Lanyun},
   journal={Scientific Reports},
